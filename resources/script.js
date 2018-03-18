@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   document.getElementById('view-account-button').onclick = function() {
     document.getElementById('main-menu-div').hidden = true;
     document.getElementById('view-account-div').hidden = false;
