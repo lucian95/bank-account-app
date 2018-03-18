@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/resources/index.html')
 });
 
-app.get('/view-account', async (req, res) => {
+app.get('/view-account', (req, res) => {
   let accountNumber = Number(req.query.accountNumber);
-  let account = await db.getAccount(accountNumber, (account) => res.json(account));
+  db.getAccount(accountNumber, (account) => res.json(account));
 });
 
 app.post('/request-account', (req, res) => {

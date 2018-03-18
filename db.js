@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 
-async function getAccount(accountNumber, callback) {
+function getAccount(accountNumber, callback) {
 
   MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
@@ -12,7 +12,7 @@ async function getAccount(accountNumber, callback) {
       assert.equal(null, err);
       callback(res);
     });
-    
+
     client.close();
   });
 }
