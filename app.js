@@ -11,9 +11,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/view-account', async (req, res) => {
-  let accountNumber = req.query.accountNumber;
-  let accountDetails = await db.getAccountDetails(accountNumber);
-  res.send(accountDetails);
+  let accountNumber = Number(req.query.accountNumber);
+  let account = await db.getAccount(accountNumber, (account) => res.json(account));
 });
 
 app.post('/request-account', (req, res) => {
