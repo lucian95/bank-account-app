@@ -5,10 +5,32 @@
     <title>Bank Account Viewer</title>
   </head>
   <body>
-    <h1>Welcome to the Bank App</h1>
-    <p>How may we help you today?</p>
-    <button id="view-account-button">View my account</button>
-    <button id="request-account-button">Request a new account</button>
+    <div id="main-menu-div">
+      <h1>Welcome to the Bank App</h1>
+      <p>How may we help you today?</p>
+      <button id="view-account-button">View my account</button>
+      <button id="request-account-button">Request a new account</button>
+    </div>
+    <div id="view-account-div" hidden>
+      <h1>Bank App</h1>
+      <p>Please enter your account number</p>
+      <form id="view-account-form" method="get">
+        <label>Account:</label>
+        <input type="number"></input>
+        <button type="submit">View my Account</button>
+        <button type="reset" class="return-to-menu-button">Return to menu</button>
+      </form>
+    </div>
+    <div id="request-account-div" hidden>
+      <h1>Bank App</h1>
+      <p>Please enter your desired account information</p>
+      <form id="request-account-form" method="post">
+        <label>Account:</label>
+        <input type="number"></input>
+        <button type="submit">Request my Account</button>
+        <button type="reset" class="return-to-menu-button">Return to menu</button>
+      </form>
+    </div>
     <script src="script.js" type="text/javascript"></script>
   </body>
 </html>
