@@ -2,17 +2,24 @@
   'use strict';
 
   document.getElementById('submit-account-number').onclick = function(e) {
-    let xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        displayAccount(JSON.parse(this.responseText));
-      }
-    };
+    if (document.getElementById('query-account-form').reportValidity())  {
 
-    let accountNumber = document.getElementById('account-number').value;
-    xhr.open('GET', '/view-account?accountNumber=' + accountNumber, true);
-    xhr.send();
+      let xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          displayAccount(JSON.parse(this.responseText));
+        } else if (this.readyState == 4 && this.status == 404) {
+          console.log('Something went wrong, see the response for more details: ', this);
+        }
+      };
+
+      let accountNumber = document.getElementById('account-number').value;
+      xhr.open('GET', '/view-account?accountNumber=' + accountNumber, true);
+      xhr.send();
+
+    }
   };
 
   function displayAccount(accountInfo) {

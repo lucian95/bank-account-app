@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Bank Account Viewer</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="query-account-div">
       <h1>Welcome to the Bank App</h1>
       <p>Please enter your account number to see your account information</p>
-      <form>
+      <form id="query-account-form">
         <div>
           <label for="account-number">Account:</label>
-          <input id="account-number" type="number" name="accountNumber"></input>
+          <input id="account-number" type="number" name="accountNumber" min="1" max="8"></input>
         </div>
         <button id="submit-account-number" type="button">View my Account</button>
       </form>
@@ -20,21 +21,21 @@
       <h1>Bank App</h1>
       <p>Here is your account information</p>
       <form>
-        <div>
+        <div class="output-field">
           <label>Account Number:</label>
-          <textarea id="returned-account-number"></textarea>
+          <textarea id="returned-account-number" rows="1" readonly></textarea>
         </div>
-        <div>
+        <div class="output-field">
           <label>First Name:</label>
-          <textarea id="returned-first-name"></textarea>
+          <textarea id="returned-first-name" rows="1" readonly></textarea>
         </div>
-        <div>
+        <div class="output-field">
           <label>Last Name:</label>
-          <textarea id="returned-last-name"></textarea>
+          <textarea id="returned-last-name" rows="1"  readonly></textarea>
         </div>
-        <div>
+        <div class="output-field">
           <label>Balance:</label>
-          <textarea id="returned-balance"></textarea>
+          <textarea id="returned-balance" rows="1" readonly></textarea>
         </div>
         <button id="view-another-account" type="reset">View Another Account</button>
       </form>

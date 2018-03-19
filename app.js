@@ -12,7 +12,9 @@ app.get('/', (req, res) => {
 
 app.get('/view-account', (req, res) => {
   let accountNumber = Number(req.query.accountNumber);
-  db.getAccount(accountNumber, (account) => res.json(account));
+  db.getAccount(accountNumber, (account) => {
+    account? res.json(account) : res.sendStatus(404);
+  });
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
