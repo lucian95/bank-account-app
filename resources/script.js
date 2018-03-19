@@ -20,4 +20,18 @@
       document.getElementById('main-menu-div').hidden = false;
     };
   }
+
+  document.getElementById('submit-account-button').onclick = function(e) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };
+
+    let accountNumber = document.getElementById('account-number').value;
+    xhr.open('GET', '/view-account?accountNumber=' + accountNumber, true);
+    xhr.send();
+  };
 })()
