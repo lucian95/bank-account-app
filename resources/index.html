@@ -5,34 +5,38 @@
     <title>Bank Account Viewer</title>
   </head>
   <body>
-    <div id="main-menu-div">
+    <div id="query-account-div">
       <h1>Welcome to the Bank App</h1>
-      <p>How may we help you today?</p>
-      <button id="view-account-button">View my account</button>
-      <button id="request-account-button">Request a new account</button>
+      <p>Please enter your account number to see your account information</p>
+      <form>
+        <div>
+          <label for="account-number">Account:</label>
+          <input id="account-number" type="number" name="accountNumber"></input>
+        </div>
+        <button id="submit-account-number" type="button">View my Account</button>
+      </form>
     </div>
     <div id="view-account-div" hidden>
       <h1>Bank App</h1>
-      <p>Please enter your account number</p>
-      <form id="view-account-form" action="view-account" method="get">
-        <label for="account-number">Account:</label>
-        <input id="account-number" type="number" name="accountNumber"></input>
-        <button id="submit-account-button" type="button">View my Account</button>
-        <button type="reset" class="return-to-menu-button">Return to menu</button>
-      </form>
-    </div>
-    <div id="request-account-div" hidden>
-      <h1>Bank App</h1>
-      <p>Please enter your desired account information</p>
-      <form id="request-account-form" action="request-account" method="post">
-        <label for="first-name">First name:</label>
-        <input id="first-name" type="text" name="firstName"></input>
-        <label for="last-name">Last name:</label>
-        <input id="last-name" type="text" name="lastName"></input>
-        <label for="balance">Balance:</label>
-        <input id="balance" type="number" name="balance"></input>
-        <button type="submit">Request my Account</button>
-        <button type="reset" class="return-to-menu-button">Return to menu</button>
+      <p>Here is your account information</p>
+      <form>
+        <div>
+          <label>Account Number:</label>
+          <textarea id="returned-account-number"></textarea>
+        </div>
+        <div>
+          <label>First Name:</label>
+          <textarea id="returned-first-name"></textarea>
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <textarea id="returned-last-name"></textarea>
+        </div>
+        <div>
+          <label>Balance:</label>
+          <textarea id="returned-balance"></textarea>
+        </div>
+        <button id="view-another-account" type="reset">View Another Account</button>
       </form>
     </div>
     <script src="script.js" type="text/javascript"></script>

@@ -15,9 +15,4 @@ app.get('/view-account', (req, res) => {
   db.getAccount(accountNumber, (account) => res.json(account));
 });
 
-app.post('/request-account', (req, res) => {
-  console.log('User wants to request a new account with this info ', req.body);
-  res.send('');
-});
-
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
