@@ -18,11 +18,19 @@ app.get('/view-account', (req, res) => {
 });
 
 app.post('/withdraw', (req, res) => {
-  
+  let accountNumber = Number(req.body.accountNumber);
+  let withdrawAmount = Number(req.body.withdrawAmount);
+  db.withdraw(accountNumber, withdrawAmount, (account) => {
+    account? res.json(account) : res.sendStatus(404);
+  });
 });
 
 app.post('/deposit', (req, res) => {
-  
+  let accountNumber = Number(req.body.accountNumber);
+  let depositAmount = Number(req.body.depositAmount);
+  db.deposit(accountNumber, depositAmount, (account) => {
+    account? res.json(account) : res.sendStatus(404);
+  });
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
