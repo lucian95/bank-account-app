@@ -21,6 +21,50 @@
 
     }
   };
+  
+  document.getElementById('submit-withdrawal').onclick = function(e) {
+
+    if (document.getElementById('returned-account-form').reportValidity())  {
+
+      let xhr = new XMLHttpRequest();
+
+      // Handle response
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          displayAccount(JSON.parse(this.responseText));
+        } else if (this.readyState == 4 && this.status == 404) {
+          console.log('Something went wrong, see the response for more details: ', this);
+        }
+      };
+
+      let accountNumber = document.getElementById('account-number').value;
+      xhr.open('POST', '/view-account?accountNumber=' + accountNumber, true);
+      xhr.send();
+
+    }
+  };
+
+  document.getElementById('submit-deposit').onclick = function(e) {
+
+    if (document.getElementById('returned-account-form').reportValidity())  {
+
+      let xhr = new XMLHttpRequest();
+
+      // Handle response
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          displayAccount(JSON.parse(this.responseText));
+        } else if (this.readyState == 4 && this.status == 404) {
+          console.log('Something went wrong, see the response for more details: ', this);
+        }
+      };
+
+      let accountNumber = document.getElementById('account-number').value;
+      xhr.open('POST', '/view-account?accountNumber=' + accountNumber, true);
+      xhr.send();
+
+    }
+  };
 
   function displayAccount(accountInfo) {
     document.getElementById('query-account-div').hidden = true;

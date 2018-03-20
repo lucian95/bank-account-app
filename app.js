@@ -17,4 +17,12 @@ app.get('/view-account', (req, res) => {
   });
 });
 
+app.post('/withdraw', (req, res) => {
+  
+});
+
+app.post('/deposit', (req, res) => {
+  
+});
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

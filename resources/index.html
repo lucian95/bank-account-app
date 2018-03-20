@@ -12,7 +12,7 @@
       <form id="query-account-form">
         <div>
           <label for="account-number">Account:</label>
-          <input id="account-number" type="number" name="accountNumber" min="1" max="8"></input>
+          <input id="account-number" type="number" name="accountNumber" min="1" max="8">
         </div>
         <button id="submit-account-number" type="button">View my Account</button>
       </form>
@@ -20,7 +20,7 @@
     <div id="view-account-div" hidden>
       <h1>Bank App</h1>
       <p>Here is your account information</p>
-      <form>
+      <form id="returned-account-form">
         <div class="output-field">
           <label>Account Number:</label>
           <textarea id="returned-account-number" rows="1" readonly></textarea>
@@ -36,6 +36,18 @@
         <div class="output-field">
           <label>Balance:</label>
           <textarea id="returned-balance" rows="1" readonly></textarea>
+        </div>
+        <div>
+          <label>Withdraw:</label>
+          <input id="withdraw-amount" type="number" step=".01" min="0">
+        </div>
+        <button id="submit-withdrawal" type="button">Withdraw</button>
+        <div>
+          <label>Deposit:</label>
+          <input id="deposit-amount" type="number" step=".01" min="0">
+        </div>
+        <div>
+          <button id="submit-deposit" type="button">Deposit</button>
         </div>
         <button id="view-another-account" type="reset">View Another Account</button>
       </form>
